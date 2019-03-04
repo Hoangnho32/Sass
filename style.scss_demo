@@ -1,0 +1,186 @@
+DEMO
+
+/**************************************
+                COLOR
+**************************************/
+$color-text:#c0392b;
+$background-color: #2ecc71;
+$class: abc;
+
+/**************************************
+                FONT
+**************************************/
+$font-text: 'Roboto Slab', serif;
+
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Srisakdi');
+
+.#{$class} {
+    .#{$class}-child {
+        a{
+            color: $color-text;
+            font-family: 'Roboto Slab', serif;
+            &:hover{
+                background-color: $background-color;
+                color: #fff;
+            }
+        }
+        
+        }
+    p {
+        color: $color-text;
+        font:{
+            family:'Srisakdi', cursive;
+            size: 30px;
+            weight:bold;
+        }
+    }
+}
+/**************************************
+                IF
+**************************************/
+.xyz {
+    $type: "monster";
+    p {
+        @if $type == "ocean" {
+            color: aqua;
+        }
+        @else if $type == "matador" {
+            color: rebeccapurple;
+        }
+        @else {
+            color: darkcyan;
+        }
+    }
+}
+
+/**************************************
+                FOR
+**************************************/
+@for $i from 1 through 3 {
+    h#{$i} {
+        font-size: 10px + $i;
+    }
+}
+
+/**************************************
+            FOR - LIST
+**************************************/
+$headerElement : h1,h2,a,p,h5;
+$fontSize      : 55px, 50px, 40px, 20px,10px;
+
+$len           : length($headerElement);
+
+@for $i from 1 through $len {
+    #{nth($headerElement,$i)} {
+        font-size: #{nth($fontSize,$i)};
+    }
+}
+
+/**************************************
+            WHILE
+**************************************/
+$n:10;
+@while $n > 0 {
+    .item-#{$n} { width: 2em + $n; }
+    $n: $n - 2;
+}
+/**************************************
+            EACH
+**************************************/
+$icons: puma, sea-lug, egret, salamander;
+
+@each $icon in $icons {
+    .#{$icon}-icon {
+        background-image: url("#");
+}
+}
+
+/**************************************
+                MAP
+**************************************/
+
+$map: (h1: 55px, h2:50px, h3: 40px, p: 20px, h5: 10px);
+
+@each $key, $value in $map {
+    #{$key} {
+        font-size: #{$value};
+    }
+}
+
+/**************************************
+            FUNCTION
+**************************************/
+$column        : 10;
+$columnWidth   : 40px;
+$columnMargin  : 10px;
+@function setWidth($pcolumn,$pcolumnWidth,$pcolumnMargin) {
+    @return $pcolumnWidth*$pcolumn + ($pcolumn + 1)*$pcolumnMargin;
+}
+div {
+    width: setWidth($column,$columnWidth,$columnMargin);
+}
+/**************************************
+            @IMPORT
+**************************************/
+@import "variables";
+.btn {
+    background-color: $color-red;
+}
+
+/**************************
+        EXTEND
+**************************/
+
+.error {
+    border: 1px solid #f00;
+    background-color: #fdd;
+}
+
+.seriousError {
+    @extend .error;
+    border-width: 3px;
+}
+
+/**************************
+        MIXIN
+**************************/
+@mixin sexy-border($color, $width, $style:solid){
+    border: {
+        color: $color;
+        width: $width;
+        style: $style;
+    }
+}
+p {
+    @include sexy-border(blue, 5px, dashed);
+}
+h3 {
+    @include sexy-border (red, 3px);
+}
+
+/**************************
+    MIXIN - LIST - MAP
+**************************/
+@mixin colors($text, $background, $border) {
+    color: $text;
+    background-color: $background;
+    border-color:$border;
+}
+
+$values: #ff0000, #00ff00, #0000ff;
+
+.primary {
+    @include colors($values...);
+}
+
+$value-map: (text: #00ff00, background: #0000ff, border: #ff0000);
+.secondary {
+    @include colors($value-map...);
+}
+
+
+
+
+
+
+

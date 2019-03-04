@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Demo SASS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Lorem ipsum dolor.</h1>
+    <div class="abc">
+        <div class="abc-child">
+            <a href="#">Lorem ipsum dolor sit amet.</a>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, deserunt.</p>
+    </div>
+    <div class="xyz">
+        <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Temporibus, saepe.</h3>
+    </div>
+</body>
+</html>

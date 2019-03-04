@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap 101 Template</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h3>Case 01</h3>
+    <button class="btn btn-red">Button Red</button>
+    <button class="btn btn-blue">Button Blue</button>
+    <button class="btn btn-yellow">Button Yellow</button>
+</body>
+</html>
